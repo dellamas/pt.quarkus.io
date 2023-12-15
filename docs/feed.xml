@@ -1,0 +1,1471 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0">
+
+    <channel>
+        <title>Quarkus</title>
+        <link>https://quarkus.io</link>
+        <description>Quarkus: Supersonic Subatomic Java</description>
+        <lastBuildDate>Fri, 15 Dec 2023 09:12:48 +0000</lastBuildDate>
+        
+        <item>
+            <title>Java 17 will be the minimum version for Quarkus 3.7</title>
+            <link>
+                https://quarkus.io/blog/java-17/
+            </link>
+            <description>
+                &lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Today we are anouncing that Quarkus 3.7 will move Quarkus to use Java 17 as the minimum JDK.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;When we started Quarkus 3.0, &lt;a href=&quot;https://quarkus.io/blog/road-to-quarkus-3/#java-target&quot;&gt;we stayed on Java 11&lt;/a&gt;. The feedback we got was that moving to Jakarta EE 10 was for many easier than to also move the underlying JDK. We wanted to give the ecosystem time to catch up and make sure we had a good story for users that needed to stay on Java 11.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;In 3.0 release, we supported Java 11 for Quarkus core, and we &lt;a href=&quot;https://quarkus.io/blog/quarkus-3-0-final-released/#java-11-deprecated&quot;&gt;marked Java 11 as deprecated&lt;/a&gt;. It should be noted that parts of the platform, especially the Camel Extensions for Quarkus, already require Java 17.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Today we are taking the step to move Quarkus core to Java 17 as the minimum JDK for Quarkus 3.7 and onwards.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;This means that Quarkus 3.7 will require Java 17 to build and run all Quarkus applications.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Below are some of the reasons for this decision and what it means for you as a Quarkus user.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;everyone-is-using-java-11-you-cannot-do-this&quot;&gt;&lt;a class=&quot;anchor&quot; href=&quot;#everyone-is-using-java-11-you-cannot-do-this&quot;&gt;&lt;/a&gt;Everyone is using Java 11 - you cannot do this!&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;We know that many users are still using Java 11 and we are not forcing you to move to Java 17. We are just making it the minimum version for Quarkus 3.7 and onwards.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;That said - the &lt;a href=&quot;https://quarkus.io/usage/&quot;&gt;usage data development builds&lt;/a&gt; in the last 30 days shows less than 8% using Java 11 for Quarkus Development.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;imageblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;img src=&quot;/assets/images/posts/javaversions-used-by-32plus.png&quot; alt=&quot;javaversions used by 32plus&quot;&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;We expect the Java 11 number to be higher in production but the trend is clear - Java 11 usage is low and declining.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;admonitionblock note&quot;&gt;
+&lt;table&gt;
+&lt;tr&gt;
+&lt;td class=&quot;icon&quot;&gt;
+&lt;i class=&quot;fa icon-note&quot; title=&quot;Note&quot;&gt;&lt;/i&gt;
+&lt;/td&gt;
+&lt;td class=&quot;content&quot;&gt;
+If you like to help us get more accurate data for future, then please consider contributring anonymous build time data - see &lt;a href=&quot;https://quarkus.io/usage/&quot;&gt;quarkus.io/usage&lt;/a&gt; for details.
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;i-cannot-move-to-java-17-yet-what-should-i-do&quot;&gt;&lt;a class=&quot;anchor&quot; href=&quot;#i-cannot-move-to-java-17-yet-what-should-i-do&quot;&gt;&lt;/a&gt;I cannot move to Java 17 yet, what should I do?&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;If you cannot move to Java 17 yet, then you can continue to use Quarkus 3.6, but we recommend you consider to use the Quarkus 3.2 LTS stream as that is the version that will get updates and fixes for the longest.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Be mindful though that Java 11 itself is rapidly heading towards going out of full support. Example Red Hat&amp;#8217;s full &lt;a href=&quot;https://access.redhat.com/articles/1299013#OpenJDK_Life_Cycle&quot;&gt;Java 11 support ends in October 2024&lt;/a&gt; and &lt;a href=&quot;https://www.oracle.com/java/technologies/java-se-support-roadmap.html&quot;&gt;Oracle ended Premier support in September 2023&lt;/a&gt;. Thus we highly recommend you start planning your migration to Java 17 or even Java 21 as soon as possible.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;im-already-using-java-17-what-does-this-mean-for-me&quot;&gt;&lt;a class=&quot;anchor&quot; href=&quot;#im-already-using-java-17-what-does-this-mean-for-me&quot;&gt;&lt;/a&gt;I&amp;#8217;m already using Java 17, what does this mean for me?&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;If you are already using Java 17 then this change will not affect you. You can continue to use Quarkus using records, multiline strings, faster runtime performance and all the other cool stuff in Java 17.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;why-java-17-and-not-java-21&quot;&gt;&lt;a class=&quot;anchor&quot; href=&quot;#why-java-17-and-not-java-21&quot;&gt;&lt;/a&gt;Why Java 17 and not Java 21?&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Quarkus supports Java 21 already today. The most well known feature of Java 21 is probably &lt;a href=&quot;https://quarkus.io/blog/virtual-thread-1/&quot;&gt;virtual threads&lt;/a&gt; and we supported that already when it was made preview in Java 19. We mainly recommend Java 21 because of all the improvements made that makes any Java application faster and more efficient - with or without Virtual Threads.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Reality is though that companies and organizations today are still in the process of migrating to Java 17 and we want to make sure that we are not forcing them to also migrate to Java 21 at the same time.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;But please do use Quarkus with Java 21 if you can, it is awesome!&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;im-a-quarkus-extension-developer-what-does-this-mean-for-me&quot;&gt;&lt;a class=&quot;anchor&quot; href=&quot;#im-a-quarkus-extension-developer-what-does-this-mean-for-me&quot;&gt;&lt;/a&gt;I&amp;#8217;m a Quarkus extension developer, what does this mean for me?&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;If you are a Quarkus extension developer then you should already be testing your extension with Java 17. If you are not, then you should start doing so now.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;If you are part of the &lt;a href=&quot;https://quarkiverse.io&quot;&gt;Quarkiverse extension ecosystem&lt;/a&gt; then we already recommend at time of Quarkus 3.2 to have a branch targeting 3.2.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;If you already have that, things should be fairly straightforward.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Build your extension for Quarkus 3.2 against Java 11 and have your main branch using Java 17.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Some extensions may still be able to release on Java 11 but they will then target Quarkus 3.2 or 3.6 - extra care should be taken to make sure that the extension is continuing to work on Quarkus 3.7 and onwards.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;There are things like Quarkus ecosystem CI which we will want to update to target multiple branches - if interested in that and especially helping out on making that work, then please follow and/or post on the &lt;a href=&quot;https://groups.google.com/g/quarkus-dev&quot;&gt;quarkus-dev mailing list&lt;/a&gt; or in the dev channel on &lt;a href=&quot;https://quarkusio.zulipchat.com/&quot;&gt;Zulip&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;quarkus-does-not-need-to-be-built-with-java-17-thus-why-require-it&quot;&gt;&lt;a class=&quot;anchor&quot; href=&quot;#quarkus-does-not-need-to-be-built-with-java-17-thus-why-require-it&quot;&gt;&lt;/a&gt;Quarkus does not need to be built with Java 17, thus why require it?&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Today Quarkus does not use Java 17 features, we deliberatly did it that way so we could support Java 11, Java 17, Java 21 etc. at the same time. We could continue doing so - we don&amp;#8217;t &lt;strong&gt;really&lt;/strong&gt; need records, multiline strings etc. to build Quarkus.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Unfortunately we are starting to see dependencies we or other extensions have that are moving to Java 17 and we want to make sure we can support them and users can use them.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;One particular example coming in 2024 is that JPA 3.2 for Hibernate ORM 7 is requiring Java 17.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;There are many more, and thus starting when &lt;a href=&quot;https://github.com/quarkusio/quarkus/pull/37335&quot;&gt;this PR&lt;/a&gt; is merged - Quarkus main will require Java 17 to build and run.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+            </description>
+            <pubDate>Thu, 30 Nov 2023 00:00:00 +0000</pubDate>
+            <guid>
+                https://quarkus.io/blog/java-17/
+            </guid>
+            
+            
+            
+            <author>Max Rydahl Andersen (https://twitter.com/maxandersen)</author>
+            
+        </item>
+        
+        <item>
+            <title>Quarkus 3.6.0 released - SSE improvements, OIDC and security-related enhancements</title>
+            <link>
+                https://quarkus.io/blog/quarkus-3-6-0-released/
+            </link>
+            <description>
+                &lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;It is with great pleasure that we are announcing the release of Quarkus 3.6.0.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Quarkus 3.6 will be the last minor of the year (we will release micros for 3.6 in December though).
+Quarkus 3.7 is &lt;a href=&quot;https://github.com/quarkusio/quarkus/wiki/Release-Planning&quot;&gt;planned for the end of January&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Major changes are:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Several new features in the REST Client related to SSE handling&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Many OIDC and general security enhancements (see below for details)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Move &lt;code&gt;quarkus-jaeger&lt;/code&gt; and &lt;code&gt;quarkus-smallrye-opentracing&lt;/code&gt; to Quarkiverse&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;As usual, this version also comes with bugfixes, performance improvements and documentation improvements.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;As mentioned in the previous minor announcement, we currently maintain two version streams in the community:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;3.6: it is the latest and greatest and it introduces new features&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;3.2: it is our current &lt;a href=&quot;/blog/lts-releases/&quot;&gt;LTS release&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Quarkus 2.x is not maintained in the community anymore.
+If you are using the community version, please upgrade to Quarkus 3.x (either 3.2 LTS or 3.6).&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;update&quot;&gt;&lt;a class=&quot;anchor&quot; href=&quot;#update&quot;&gt;&lt;/a&gt;Update&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;To update to Quarkus 3.6, we recommend updating to the latest version of the Quarkus CLI and run:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;highlightjs highlight&quot;&gt;&lt;code class=&quot;language-bash hljs&quot; data-lang=&quot;bash&quot;&gt;quarkus update&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;To migrate from 3.5, please refer to &lt;a href=&quot;https://github.com/quarkusio/quarkus/wiki/Migration-Guide-3.6&quot;&gt;our migration guide&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;If you are not already using 3.x, please refer to the &lt;a href=&quot;https://quarkus.io/blog/quarkus-3-0-final-released/&quot;&gt;3.0 announcement&lt;/a&gt; for all the details.
+You can also refer to &lt;a href=&quot;https://quarkus.io/blog/quarkus-3-upgrade/&quot;&gt;this blog post&lt;/a&gt; for additional details.
+Once you upgraded to 3.0, also have a look at the &lt;a href=&quot;https://github.com/quarkusio/quarkus/wiki/Migration-Guide-3.1&quot;&gt;3.1&lt;/a&gt;, &lt;a href=&quot;https://github.com/quarkusio/quarkus/wiki/Migration-Guide-3.2&quot;&gt;3.2&lt;/a&gt;, &lt;a href=&quot;https://github.com/quarkusio/quarkus/wiki/Migration-Guide-3.2&quot;&gt;3.3&lt;/a&gt;, &lt;a href=&quot;https://github.com/quarkusio/quarkus/wiki/Migration-Guide-3.4&quot;&gt;3.4&lt;/a&gt;, and &lt;a href=&quot;https://github.com/quarkusio/quarkus/wiki/Migration-Guide-3.5&quot;&gt;3.5&lt;/a&gt; migration guides.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;whats-new&quot;&gt;&lt;a class=&quot;anchor&quot; href=&quot;#whats-new&quot;&gt;&lt;/a&gt;What&amp;#8217;s new?&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;sect2&quot;&gt;
+&lt;h3 id=&quot;sse-handling-improvements&quot;&gt;&lt;a class=&quot;anchor&quot; href=&quot;#sse-handling-improvements&quot;&gt;&lt;/a&gt;SSE handling improvements&lt;/h3&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;SSE handling in the REST Client was significantly improved:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;The REST Client can now return the entire SSE event instead of just the data.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;You can easily filter out some particular SSE events with a &lt;code&gt;SseEventFilter&lt;/code&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;These new features are fully documented in the &lt;a href=&quot;https://quarkus.io/guides/rest-client-reactive&quot;&gt;REST Client guide&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect2&quot;&gt;
+&lt;h3 id=&quot;oidc-and-security-improvements&quot;&gt;&lt;a class=&quot;anchor&quot; href=&quot;#oidc-and-security-improvements&quot;&gt;&lt;/a&gt;OIDC and security improvements&lt;/h3&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Many enhancements were made to the OIDC and security extensions:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Support for dynamic OIDC JWK set resolution&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Ability to adjust HTTP permissions and roles policies at runtime&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Add Discord as well-known OIDC provider&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;JPA Security: allow pointing to a named persistence unit&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Introduce OidcRequestFilter&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Make it possible to acquire OIDC SecurityIdentity after HTTP request has completed&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Also there is now an OIDC client integration for GraphQL clients.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect2&quot;&gt;
+&lt;h3 id=&quot;quarkus-jaeger-and-quarkus-smallrye-opentracing-moved-to-quarkiverse&quot;&gt;&lt;a class=&quot;anchor&quot; href=&quot;#quarkus-jaeger-and-quarkus-smallrye-opentracing-moved-to-quarkiverse&quot;&gt;&lt;/a&gt;quarkus-jaeger and quarkus-smallrye-opentracing moved to Quarkiverse&lt;/h3&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;After having been deprecated for a long while, the Jaeger and SmallRye OpenTracing extensions have been retired from the Quarkus Platform.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;It is recommended to  migrate your applications to OpenTelemetry and a  &lt;a href=&quot;https://quarkus.io/version/main/guides/telemetry-opentracing-to-otel-tutorial&quot;&gt;tutorial to guide you in this migration is available&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;The code of the extensions have been moved to the Quarkiverse and can be consumed from there from now on (relocations have been put in place to avoid breaking your builds).
+If you want these extensions to continue working in the future, it is recommended to get involved in their development.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;These extensions are not in the Quarkus Platform BOM anymore and you need to define the version yourself in your build file, together with moving to the new &lt;code&gt;groupId&lt;/code&gt;:&lt;/p&gt;
+&lt;/div&gt;
+&lt;table class=&quot;tableblock frame-all grid-all stretch&quot;&gt;
+&lt;colgroup&gt;
+&lt;col style=&quot;width: 25%;&quot;&gt;
+&lt;col style=&quot;width: 25%;&quot;&gt;
+&lt;col style=&quot;width: 25%;&quot;&gt;
+&lt;col style=&quot;width: 25%;&quot;&gt;
+&lt;/colgroup&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th class=&quot;tableblock halign-left valign-top&quot;&gt;Component&lt;/th&gt;
+&lt;th class=&quot;tableblock halign-left valign-top&quot;&gt;New groupId&lt;/th&gt;
+&lt;th class=&quot;tableblock halign-left valign-top&quot;&gt;Current version&lt;/th&gt;
+&lt;th class=&quot;tableblock halign-left valign-top&quot;&gt;Repository&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;Jaeger&lt;/p&gt;&lt;/td&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;&lt;code&gt;io.quarkiverse.jaeger&lt;/code&gt;&lt;/p&gt;&lt;/td&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;&lt;code&gt;1.0.0&lt;/code&gt;&lt;/p&gt;&lt;/td&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;&lt;a href=&quot;https://github.com/quarkiverse/quarkus-jaeger&quot; class=&quot;bare&quot;&gt;https://github.com/quarkiverse/quarkus-jaeger&lt;/a&gt;&lt;/p&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;SmallRye OpenTracing&lt;/p&gt;&lt;/td&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;&lt;code&gt;io.quarkiverse.opentracing&lt;/code&gt;&lt;/p&gt;&lt;/td&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;&lt;code&gt;1.0.0&lt;/code&gt;&lt;/p&gt;&lt;/td&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;&lt;a href=&quot;https://github.com/quarkiverse/quarkus-smallrye-opentracing&quot; class=&quot;bare&quot;&gt;https://github.com/quarkiverse/quarkus-smallrye-opentracing&lt;/a&gt;&lt;/p&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;full-changelog&quot;&gt;&lt;a class=&quot;anchor&quot; href=&quot;#full-changelog&quot;&gt;&lt;/a&gt;Full changelog&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;You can get the full changelog of &lt;a href=&quot;https://github.com/quarkusio/quarkus/releases/tag/3.6.0.CR1&quot;&gt;3.6.0.CR1&lt;/a&gt; and &lt;a href=&quot;https://github.com/quarkusio/quarkus/releases/tag/3.6.0&quot;&gt;3.6.0&lt;/a&gt; on GitHub.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;contributors&quot;&gt;&lt;a class=&quot;anchor&quot; href=&quot;#contributors&quot;&gt;&lt;/a&gt;Contributors&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;The Quarkus community is growing and has now &lt;a href=&quot;https://github.com/quarkusio/quarkus/graphs/contributors&quot;&gt;876 contributors&lt;/a&gt;.
+Many many thanks to each and everyone of them.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;In particular for the 3.6 release, thanks to Ales Justin, Alex Martel, Alexander Schwartz, Alexey Loubyansky, Anastasiia Pushkina, Andrea Peruffo, Andrej Petras, Andy Damevin, asjervanasten, Auri Munoz, barreiro, Bernhard Schuhmann, Bruno Baptista, Bruno Oliveira da Silva, Christian Beikov, Clement Escoffier, David Birks, David Cotton, Davide D&amp;#8217;Alto, Eric Deandrea, Erin Schnabel, Falko Modler, Felix König, Foivos Zakkak, Geoffrey De Smet, George Gastaldi, Georgios Andrianakis, glefloch, Guillaume Smet, hiteshkhatri97, Holly Cummins, Ioannis Canellos, Ivan, Jan Martiska, jeanphi.baconnais, JiriOndrusek, Juan Diego López V, Katia Aresti, kdnakt, Ladislav Thon, Leonor Boga, Loïc Mathieu, Luke Morfill, Marc Nuri, Marco Bungart, Marco Sappé Griot, mariofusco, Mark Swatosh, marko-bekhta, Martin Kouba, Matej Novotny, Max Rydahl Andersen, Melloware, Michal Maléř, Michal Vavřík, Michelle Purcell, Milan Tulek, Nathan Erwin, Nelson Osacky, Ozan Gunalp, Pedro Igor, Peter Palaga, Phillip Krüger, Robert Stupp, Roberto Cortez, Rolfe Dlugy-Hegwer, Roman Ziske, Rostislav Svoboda, Rui Balau, sahuefficy, Said BOUDJELDA, Sanne Grinovero, Scott M Stark, Sergey Beryozkin, Stefan Guilhen, Torben Meyer, wrongwrong, xstefank, Yoann Rodière, and Yoshikazu Nojima.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;come-join-us&quot;&gt;&lt;a class=&quot;anchor&quot; href=&quot;#come-join-us&quot;&gt;&lt;/a&gt;Come Join Us&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;We value your feedback a lot so please report bugs, ask for improvements&amp;#8230;&amp;#8203; Let&amp;#8217;s build something great together!&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;If you are a Quarkus user or just curious, don&amp;#8217;t be shy and join our welcoming community:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;provide feedback on &lt;a href=&quot;https://github.com/quarkusio/quarkus/issues&quot;&gt;GitHub&lt;/a&gt;;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;craft some code and &lt;a href=&quot;https://github.com/quarkusio/quarkus/pulls&quot;&gt;push a PR&lt;/a&gt;;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;discuss with us on &lt;a href=&quot;https://quarkusio.zulipchat.com/&quot;&gt;Zulip&lt;/a&gt; and on the &lt;a href=&quot;https://groups.google.com/d/forum/quarkus-dev&quot;&gt;mailing list&lt;/a&gt;;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;ask your questions on &lt;a href=&quot;https://stackoverflow.com/questions/tagged/quarkus&quot;&gt;Stack Overflow&lt;/a&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+            </description>
+            <pubDate>Wed, 29 Nov 2023 00:00:00 +0000</pubDate>
+            <guid>
+                https://quarkus.io/blog/quarkus-3-6-0-released/
+            </guid>
+            
+            
+            
+            <author>Guillaume Smet (https://twitter.com/gsmet_)</author>
+            
+        </item>
+        
+        <item>
+            <title>SmallRye Stork Unwrapped: Exploring New Features and Enhancements</title>
+            <link>
+                https://quarkus.io/blog/stork-latest-news/
+            </link>
+            <description>
+                &lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Since its initial release in January 2022, Stork has undergone significant development, introducing new features that extended its capabilities and improved developer experience.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;This blog post takes a deep dive into the evolution of SmallRye Stork beyond its initial release, providing a detailed exploration of its fresh additions.
+But first, let&amp;#8217;s describe briefly what Stork can do for you.
+SmallRye Stork is a client-side service discovery and selection framework.
+It provides out-of-the-box integrations with Kubernetes, Eureka, and Hashicorp Consul, as well as a set of selection strategies, including round-robin, power-of-two-choices and best response time.
+But the most noteworthy feature of Stork is its extensibility. You can create your own service selection strategy or plug in your own service discovery mechanism.
+If you don&amp;#8217;t know it yet, a good way to get started is to take a look at our &lt;a href=&quot;https://quarkus.io/guides/stork&quot;&gt;getting started guide&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Additionally, our documentation has also been enhanced, offering comprehensive guides for both seasoned users and those taking their first steps with Stork.
+To further support your exploration, there is &lt;a href=&quot;https://www.youtube.com/watch?v=fCNwxPDGt7Q&quot;&gt;a video&lt;/a&gt; and supplementary content that show Stork&amp;#8217;s capabilities in detail, don’t hesitate to check them out.
+Don&amp;#8217;t have much time? Don&amp;#8217;t worry, we have the &lt;a href=&quot;https://www.youtube.com/shorts/F4Gd1I1zfjs&quot;&gt;perfect video&lt;/a&gt; to understand Stork in less than 1 minute.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;With the latest added additions we highlight how Stork
+continues to reshape the client-side service discovery and selection landscape.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Let&amp;#8217;s now have a look at the most interesting additions added to Stork since its initial release.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;programmatic-service-definition&quot;&gt;&lt;a class=&quot;anchor&quot; href=&quot;#programmatic-service-definition&quot;&gt;&lt;/a&gt;Programmatic service definition&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Initially, you had to configure Stork in the application configuration. You needed to configure the service discovery and selection (optionally) for each &lt;em&gt;service&lt;/em&gt; you wanted to discover and select.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Stork, from the 1.2.0 version, proposes a programmatic API to allow users to define the service discovery and selection configuration through code rather
+than through declarative or external configuration files. This means that you can use the full expressive power of Java to explicitly specify new service
+definitions and do manual lookup and selection. This is particularly beneficial when the configuration requirements of an application are not known until runtime,
+and it provides the ability to adjust settings without restarting the application.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;When using the programmatic API of Stork, you can:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Retrieve the singleton &lt;code&gt;Stork&lt;/code&gt; instance. This instance is configured with the set of &lt;code&gt;Services&lt;/code&gt; it manages.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Register new service definition.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Retrieve the &lt;code&gt;Service&lt;/code&gt; you want to use. Each Service is associated with a name.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Retrieve the &lt;code&gt;ServiceInstance&lt;/code&gt;, which will provide the metadata to access the actual instance.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;In the following code, we use Stork programmatic API to set up and configure services with different discovery methods and selection strategies:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;highlightjs highlight&quot;&gt;&lt;code class=&quot;language-java hljs&quot; data-lang=&quot;java&quot;&gt;package examples;
+
+import io.smallrye.stork.Stork;
+import io.smallrye.stork.api.ServiceDefinition;
+import io.smallrye.stork.loadbalancer.random.RandomConfiguration;
+import io.smallrye.stork.servicediscovery.consul.ConsulRegistrarConfiguration;
+import io.smallrye.stork.servicediscovery.staticlist.StaticConfiguration;
+import io.smallrye.stork.servicediscovery.staticlist.StaticRegistrarConfiguration;
+
+public class DefinitionExample {
+
+    public static void example(Stork stork) {
+        String example = &quot;localhost:8080, localhost:8081&quot;;
+
+        // A service using a static list of locations as discovery
+        // As not set, it defaults to round-robin to select the instance.
+        stork.defineIfAbsent(&quot;my-service&quot;,
+                ServiceDefinition.of(new StaticConfiguration().withAddressList(example)));
+
+        // Another service using the random selection strategy, instead of round-robin
+        stork.defineIfAbsent(&quot;my-second-service&quot;,
+                ServiceDefinition.of(new StaticConfiguration().withAddressList(example),
+                        new RandomConfiguration()));
+
+        // Another service using the random selection strategy, instead of round-robin
+        // and a static service registrar
+        stork.defineIfAbsent(&quot;my-second-service&quot;,
+                ServiceDefinition.of(new StaticConfiguration().withAddressList(example),
+                        new RandomConfiguration(), new StaticRegistrarConfiguration()));
+    }
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;It’s important to note that the choice between programmatic and declarative configuration often depends on the specific requirements and constraints of
+your application.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;service-discovery-and-selection-strategies-provided-as-cdi-beans&quot;&gt;&lt;a class=&quot;anchor&quot; href=&quot;#service-discovery-and-selection-strategies-provided-as-cdi-beans&quot;&gt;&lt;/a&gt;Service discovery and selection strategies provided as CDI beans.&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;The second noticeable improvement is the integration with CDI.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Users may prefer using a framework that leverages CDI mechanism to easily manage and inject dependencies and have a more testable and maintainable code.
+Stork can now do that. Starting from the 2.0.1 release, users can use the service discovery and load balancer as beans.
+For that, it looks for CDI beans during the initialization in addition to the SPI providers.
+It is worth mentioning that this enhancement also contributes to improving the Quarkus experience.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;new-service-discovery-approaches-added&quot;&gt;&lt;a class=&quot;anchor&quot; href=&quot;#new-service-discovery-approaches-added&quot;&gt;&lt;/a&gt;New service discovery approaches added.&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;We are happy to announce a few added service discovery strategies using DNS and Knative.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;With the Knative service discovery, Smallrye Stork introduces seamless service discovery through its serverless infrastructure, even when there are no 'pod' running.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;The Stork Knative service discovery implementation is very similar to the Kubernetes one.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Stork will ask for &lt;a href=&quot;https://knative.dev/docs/serving/reference/serving-api/#serving.knative.dev/v1.Service&quot;&gt;Knative services&lt;/a&gt; to the cluster instead of vanilla &lt;a href=&quot;https://kubernetes.io/docs/concepts/services-networking/service/#service-resource&quot;&gt;Kubernetes services&lt;/a&gt; used by the Kubernetes implementation.
+Again, to do so, Stork uses &lt;a href=&quot;https://github.com/fabric8io/kubernetes-client/blob/master/extensions/knative/client/src/main/java/io/fabric8/knative/client/KnativeClient.java&quot;&gt;Fabric 8 Knative Client&lt;/a&gt; which is just an extension of Fabric8 Kubernetes Client.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;The DNS-based service discovery is also here to stay. When a service has registered one or more instances in a Domain Name System (DNS) server,
+Stork will be able to discover them by querying the DNS. This strategy is simple and widely used, so Stork could not fail to implement it.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;new-sticky-service-selection-strategy&quot;&gt;&lt;a class=&quot;anchor&quot; href=&quot;#new-sticky-service-selection-strategy&quot;&gt;&lt;/a&gt;New sticky service selection strategy&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;The Stork load balancer family has been extended with a new one: the sticky service selection implementation.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;The sticky service selection implemented by Stork refers to a strategy where a client &quot;sticks&quot; to a particular instance of a service until it fails,
+then it selects another one. It is also possible to configure a backoff period for specifying how long a failing service instance should be retried.
+This can be useful in scenarios where maintaining a consistent connection to the same instance is beneficial, such as when dealing with sessions or
+stateful applications.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;enhanced-service-instances-cache-expiration-policy&quot;&gt;&lt;a class=&quot;anchor&quot; href=&quot;#enhanced-service-instances-cache-expiration-policy&quot;&gt;&lt;/a&gt;Enhanced service instances cache expiration policy.&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Since almost the first release, Stork has provided in-memory caching of discovered instances by extending the &lt;code&gt;CachingServiceDiscovery&lt;/code&gt; class.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;As of version 1.3, this capability has been expanded to allow the retention of the cached service instances for a specified duration and the implementation of custom business logic for decision-making and data expiration.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;This enhancement was driven by the specific requirements of Kubernetes service discovery as contacting the cluster too frequently can result in performance
+problems. So, out of the box, Stork Kubernetes service discovery now comes with a tailored cache expiration strategy to keep service instances until an event occurs.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;If you would like to do so for your custom service discovery implementations, you need:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Extend the CachingServiceDiscovery as mentioned above.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Implement the &lt;code&gt;cache&lt;/code&gt; method where the expiration strategy is defined.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Invalidate the cache when the expiration condition evaluates to &lt;code&gt;true&lt;/code&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Look at the example bellow:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;highlightjs highlight&quot;&gt;&lt;code class=&quot;language-java hljs&quot; data-lang=&quot;java&quot;&gt;package examples;
+
+import io.smallrye.mutiny.Uni;
+import io.smallrye.stork.api.ServiceInstance;
+import io.smallrye.stork.impl.CachingServiceDiscovery;
+import io.smallrye.stork.impl.DefaultServiceInstance;
+import io.smallrye.stork.utils.ServiceInstanceIds;
+
+import java.util.Collections;
+import java.util.List;
+import java.util.concurrent.atomic.AtomicBoolean;
+
+public class CustomExpirationCachedAcmeServiceDiscovery extends CachingServiceDiscovery {
+
+    private final String host;
+    private final int port;
+
+    private AtomicBoolean invalidated = new AtomicBoolean();
+
+    public CustomExpirationCachedAcmeServiceDiscovery(CachedAcmeConfiguration configuration) {
+        super(configuration.getRefreshPeriod()); // (1)
+        this.host = configuration.getHost();
+        this.port = Integer.parseInt(configuration.getPort());
+    }
+
+    @Override
+    public Uni&amp;lt;List&amp;lt;ServiceInstance&amp;gt;&amp;gt; fetchNewServiceInstances(List&amp;lt;ServiceInstance&amp;gt; previousInstances) {
+        // Retrieve services...
+        DefaultServiceInstance instance =
+                new DefaultServiceInstance(ServiceInstanceIds.next(), host, port, false);
+        return Uni.createFrom().item(() -&amp;gt; Collections.singletonList(instance));
+    }
+
+    @Override
+    public Uni&amp;lt;List&amp;lt;ServiceInstance&amp;gt;&amp;gt; cache(Uni&amp;lt;List&amp;lt;ServiceInstance&amp;gt;&amp;gt; uni) {
+        return uni.memoize().until(() -&amp;gt; invalidated.get());
+    }
+
+    //command-based cache invalidation: user triggers the action to invalidate the cache.
+    public void invalidate() {
+        invalidated.set(true);
+    }
+
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;You can check the &lt;a href=&quot;https://github.com/smallrye/smallrye-stork/blob/main/service-discovery/kubernetes/src/main/java/io/smallrye/stork/servicediscovery/kubernetes/KubernetesServiceDiscovery.java&quot;&gt;Kubernetes Service Discovery code&lt;/a&gt; for further details about an event-based invalidation example.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;observability&quot;&gt;&lt;a class=&quot;anchor&quot; href=&quot;#observability&quot;&gt;&lt;/a&gt;Observability&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Observability refers to the ability to understand and gain insights into the internal workings and behaviors of a system through the analysis of its external outputs or observations. Stork observability support has been integrated in Quarkus 3.6.0 release (release planned for next week). This addition brings automated observability to the forefront of service discovery and selection providing a window into how Stork behaves in real-time. Now you can effortlessly monitor metrics such as service discovery and selection durations and error rates.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;If you&amp;#8217;re leveraging Stork within your Quarkus application, now, you can easily check and analyze metrics such as service discovery and selection
+response times and errors directly in Prometheus. Check the &lt;a href=&quot;https://quarkus.io/version/main/guides/stork-reference#configure-stork-observability&quot;&gt;Stork reference guide&lt;/a&gt; for details.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;In conclusion, all these advancements in Stork signify our commitment to enhancing your experience with service discovery and selection.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Stay tuned for more updates. Your feedback is invaluable to us so share it and contribute to making Stork even better.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+            </description>
+            <pubDate>Thu, 23 Nov 2023 00:00:00 +0000</pubDate>
+            <guid>
+                https://quarkus.io/blog/stork-latest-news/
+            </guid>
+            
+            
+            
+            <author>Aurea Munoz (https://twitter.com/auritamh)</author>
+            
+        </item>
+        
+        <item>
+            <title>Quarkus 3.5.3 released - Maintenance release</title>
+            <link>
+                https://quarkus.io/blog/quarkus-3-5-3-released/
+            </link>
+            <description>
+                &lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Today, we released Quarkus 3.5.3, our third maintenance release for the 3.5 release train.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;This release contains bugfixes and documentation improvements.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;It should be a safe upgrade for anyone already using 3.5.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;update&quot;&gt;&lt;a class=&quot;anchor&quot; href=&quot;#update&quot;&gt;&lt;/a&gt;Update&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;To update to Quarkus 3.5.3, we recommend updating to the latest version of the Quarkus CLI and run:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;highlightjs highlight&quot;&gt;&lt;code class=&quot;language-bash hljs&quot; data-lang=&quot;bash&quot;&gt;quarkus update&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;To migrate from 3.4, please refer to &lt;a href=&quot;https://github.com/quarkusio/quarkus/wiki/Migration-Guide-3.5&quot;&gt;our migration guide&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;If you are not already using 3.x, please refer to the &lt;a href=&quot;https://quarkus.io/blog/quarkus-3-0-final-released/&quot;&gt;3.0 announcement&lt;/a&gt; for all the details.
+You can also refer to &lt;a href=&quot;https://quarkus.io/blog/quarkus-3-upgrade/&quot;&gt;this blog post&lt;/a&gt; for additional details.
+Once you upgraded to 3.0, also have a look at the &lt;a href=&quot;https://github.com/quarkusio/quarkus/wiki/Migration-Guide-3.1&quot;&gt;3.1&lt;/a&gt;, &lt;a href=&quot;https://github.com/quarkusio/quarkus/wiki/Migration-Guide-3.2&quot;&gt;3.2&lt;/a&gt;, &lt;a href=&quot;https://github.com/quarkusio/quarkus/wiki/Migration-Guide-3.2&quot;&gt;3.3&lt;/a&gt;, and &lt;a href=&quot;https://github.com/quarkusio/quarkus/wiki/Migration-Guide-3.4&quot;&gt;3.4&lt;/a&gt; migration guides.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;full-changelog&quot;&gt;&lt;a class=&quot;anchor&quot; href=&quot;#full-changelog&quot;&gt;&lt;/a&gt;Full changelog&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;You can get &lt;a href=&quot;https://github.com/quarkusio/quarkus/releases/tag/3.5.3&quot;&gt;the full changelog of 3.5.3 on GitHub&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;come-join-us&quot;&gt;&lt;a class=&quot;anchor&quot; href=&quot;#come-join-us&quot;&gt;&lt;/a&gt;Come Join Us&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;We value your feedback a lot so please report bugs, ask for improvements&amp;#8230;&amp;#8203; Let&amp;#8217;s build something great together!&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;If you are a Quarkus user or just curious, don&amp;#8217;t be shy and join our welcoming community:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;provide feedback on &lt;a href=&quot;https://github.com/quarkusio/quarkus/issues&quot;&gt;GitHub&lt;/a&gt;;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;craft some code and &lt;a href=&quot;https://github.com/quarkusio/quarkus/pulls&quot;&gt;push a PR&lt;/a&gt;;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;discuss with us on &lt;a href=&quot;https://quarkusio.zulipchat.com/&quot;&gt;Zulip&lt;/a&gt; and on the &lt;a href=&quot;https://groups.google.com/d/forum/quarkus-dev&quot;&gt;mailing list&lt;/a&gt;;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;ask your questions on &lt;a href=&quot;https://stackoverflow.com/questions/tagged/quarkus&quot;&gt;Stack Overflow&lt;/a&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+            </description>
+            <pubDate>Tue, 21 Nov 2023 00:00:00 +0000</pubDate>
+            <guid>
+                https://quarkus.io/blog/quarkus-3-5-3-released/
+            </guid>
+            
+            
+            
+            <author>Guillaume Smet (https://twitter.com/gsmet_)</author>
+            
+        </item>
+        
+        <item>
+            <title>Quarkus 3.2.9.Final released - Maintenance LTS release</title>
+            <link>
+                https://quarkus.io/blog/quarkus-3-2-9-final-released/
+            </link>
+            <description>
+                &lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Quarkus 3.2.9.Final, the ninth maintenance release of the 3.2 LTS release train has been released.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;This release fixes the following regressions reported by the community:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/quarkusio/quarkus/issues/36992&quot;&gt;Gradle plugin: quarkus.container-image.push=true not working in 3.2.8&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/quarkusio/quarkus/issues/37045&quot;&gt;Regression with ForwardedParser setting an empty host header&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;And the following critical bug fixes:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/quarkusio/quarkus/pull/37077&quot;&gt;Handle duplicated context in the CacheResultInterceptor&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/quarkusio/quarkus/issues/20092&quot;&gt;GraphQL authenticated subscription&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;It should be a safe upgrade for anyone already using a 3.2 release.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;If you are not already using a 3.2 release, please refer to &lt;a href=&quot;https://github.com/quarkusio/quarkus/wiki/Migration-Guide-3.2&quot;&gt;our migration guide&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;full-changelog&quot;&gt;&lt;a class=&quot;anchor&quot; href=&quot;#full-changelog&quot;&gt;&lt;/a&gt;Full changelog&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;You can get &lt;a href=&quot;https://github.com/quarkusio/quarkus/releases/tag/3.2.9.Final&quot;&gt;the full changelog of 3.2.9.Final on GitHub&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;come-join-us&quot;&gt;&lt;a class=&quot;anchor&quot; href=&quot;#come-join-us&quot;&gt;&lt;/a&gt;Come Join Us&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;We value your feedback a lot so please report bugs, ask for improvements&amp;#8230;&amp;#8203; Let&amp;#8217;s build something great together!&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;If you are a Quarkus user or just curious, don&amp;#8217;t be shy and join our welcoming community:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;provide feedback on &lt;a href=&quot;https://github.com/quarkusio/quarkus/issues&quot;&gt;GitHub&lt;/a&gt;;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;craft some code and &lt;a href=&quot;https://github.com/quarkusio/quarkus/pulls&quot;&gt;push a PR&lt;/a&gt;;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;discuss with us on &lt;a href=&quot;https://quarkusio.zulipchat.com/&quot;&gt;Zulip&lt;/a&gt; and on the &lt;a href=&quot;https://groups.google.com/d/forum/quarkus-dev&quot;&gt;mailing list&lt;/a&gt;;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;ask your questions on &lt;a href=&quot;https://stackoverflow.com/questions/tagged/quarkus&quot;&gt;Stack Overflow&lt;/a&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+            </description>
+            <pubDate>Mon, 20 Nov 2023 00:00:00 +0000</pubDate>
+            <guid>
+                https://quarkus.io/blog/quarkus-3-2-9-final-released/
+            </guid>
+            
+            
+            
+            <author>Alexey Loubyansky (https://twitter.com/aloubyansky)</author>
+            
+        </item>
+        
+        <item>
+            <title>Quarkus 3.5.2 released - Maintenance release</title>
+            <link>
+                https://quarkus.io/blog/quarkus-3-5-2-released/
+            </link>
+            <description>
+                &lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Today, we released Quarkus 3.5.2, our second maintenance release for the 3.5 release train.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;This release contains bugfixes and documentation improvements.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;It should be a safe upgrade for anyone already using 3.5.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;update&quot;&gt;&lt;a class=&quot;anchor&quot; href=&quot;#update&quot;&gt;&lt;/a&gt;Update&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;To update to Quarkus 3.5.2, we recommend updating to the latest version of the Quarkus CLI and run:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;highlightjs highlight&quot;&gt;&lt;code class=&quot;language-bash hljs&quot; data-lang=&quot;bash&quot;&gt;quarkus update&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;To migrate from 3.4, please refer to &lt;a href=&quot;https://github.com/quarkusio/quarkus/wiki/Migration-Guide-3.5&quot;&gt;our migration guide&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;If you are not already using 3.x, please refer to the &lt;a href=&quot;https://quarkus.io/blog/quarkus-3-0-final-released/&quot;&gt;3.0 announcement&lt;/a&gt; for all the details.
+You can also refer to &lt;a href=&quot;https://quarkus.io/blog/quarkus-3-upgrade/&quot;&gt;this blog post&lt;/a&gt; for additional details.
+Once you upgraded to 3.0, also have a look at the &lt;a href=&quot;https://github.com/quarkusio/quarkus/wiki/Migration-Guide-3.1&quot;&gt;3.1&lt;/a&gt;, &lt;a href=&quot;https://github.com/quarkusio/quarkus/wiki/Migration-Guide-3.2&quot;&gt;3.2&lt;/a&gt;, &lt;a href=&quot;https://github.com/quarkusio/quarkus/wiki/Migration-Guide-3.2&quot;&gt;3.3&lt;/a&gt;, and &lt;a href=&quot;https://github.com/quarkusio/quarkus/wiki/Migration-Guide-3.4&quot;&gt;3.4&lt;/a&gt; migration guides.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;full-changelog&quot;&gt;&lt;a class=&quot;anchor&quot; href=&quot;#full-changelog&quot;&gt;&lt;/a&gt;Full changelog&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;You can get &lt;a href=&quot;https://github.com/quarkusio/quarkus/releases/tag/3.5.2&quot;&gt;the full changelog of 3.5.2 on GitHub&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;come-join-us&quot;&gt;&lt;a class=&quot;anchor&quot; href=&quot;#come-join-us&quot;&gt;&lt;/a&gt;Come Join Us&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;We value your feedback a lot so please report bugs, ask for improvements&amp;#8230;&amp;#8203; Let&amp;#8217;s build something great together!&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;If you are a Quarkus user or just curious, don&amp;#8217;t be shy and join our welcoming community:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;provide feedback on &lt;a href=&quot;https://github.com/quarkusio/quarkus/issues&quot;&gt;GitHub&lt;/a&gt;;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;craft some code and &lt;a href=&quot;https://github.com/quarkusio/quarkus/pulls&quot;&gt;push a PR&lt;/a&gt;;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;discuss with us on &lt;a href=&quot;https://quarkusio.zulipchat.com/&quot;&gt;Zulip&lt;/a&gt; and on the &lt;a href=&quot;https://groups.google.com/d/forum/quarkus-dev&quot;&gt;mailing list&lt;/a&gt;;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;ask your questions on &lt;a href=&quot;https://stackoverflow.com/questions/tagged/quarkus&quot;&gt;Stack Overflow&lt;/a&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+            </description>
+            <pubDate>Thu, 16 Nov 2023 00:00:00 +0000</pubDate>
+            <guid>
+                https://quarkus.io/blog/quarkus-3-5-2-released/
+            </guid>
+            
+            
+            
+            <author>Guillaume Smet (https://twitter.com/gsmet_)</author>
+            
+        </item>
+        
+        <item>
+            <title>When Quarkus meets LangChain4j</title>
+            <link>
+                https://quarkus.io/blog/quarkus-meets-langchain4j/
+            </link>
+            <description>
+                &lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Large language models (LLMs) are reshaping the world of software, altering the way we interact with users and develop business logic.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Popularized by &lt;a href=&quot;https://openai.com/&quot;&gt;OpenAI&lt;/a&gt;'s &lt;a href=&quot;https://chat.openai.com/&quot;&gt;ChatGPT&lt;/a&gt;, LLMs are now available in many flavors and sizes. The &lt;a href=&quot;https://huggingface.co/models&quot;&gt;Hugging-Face&lt;/a&gt; platform references hundreds of them, and major tech companies like Facebook, Google, Microsoft, Amazon and IBM are also providing their own models.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;LLMs are not a new concept. They have been around for a while, but they were not as powerful or as accessible they became when OpenAI made ChatGPT API&amp;#8217;s publically available. Since then the Quarkus team have been thinking about what it would mean to integrate LLMs in the Quarkus ecosystem. The talk &lt;a href=&quot;https://www.youtube.com/watch?app=desktop&amp;amp;v=BD1MSLbs9KE&quot;&gt;Java Meets AI&lt;/a&gt; from Lize Raes at Devoxx 2023 has been a great source of inspiration.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Since, the Quarkus team, in collaboration with Dmytro Liubarskyi and the LangChain4j team, has been working on an extension to integrate LLMs in Quarkus applications. This extension is based on the &lt;a href=&quot;https://github.com/langchain4j&quot;&gt;LangChain4j library&lt;/a&gt;, which provides a common API to interact with LLMs. The LangChain4j project is a Java re-implementation of the famous &lt;a href=&quot;https://www.langchain.com/&quot;&gt;langchain&lt;/a&gt; library.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;In this blog post, we will see how to use the just released &lt;a href=&quot;https://docs.quarkiverse.io/quarkus-langchain4j/dev/index.html&quot;&gt;quarkus-langchain4j&lt;/a&gt; 0.1 extension to integrate LLMs in Quarkus applications. This extension is an exploration to understand how LLMs can be used in Quarkus applications.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;We recorded a live Fireside chat on this extension. You can watch it here, the blog continues &lt;a href=&quot;#overview&quot;&gt;below&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;videoblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;iframe width=&quot;640&quot; height=&quot;360&quot; src=&quot;https://www.youtube.com/embed/mYw9ySwmK34?rel=0&quot; frameborder=&quot;0&quot; allowfullscreen&gt;&lt;/iframe&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;overview&quot;&gt;&lt;a class=&quot;anchor&quot; href=&quot;#overview&quot;&gt;&lt;/a&gt;Overview&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;First, let&amp;#8217;s have a look at the big picture. When integrating an LLM into a Quarkus application, you need to describe what you want the AI to do. Unlike traditional code, you are going to explain the behavior of the AI using natural language. Of course, there are a few techniques to tame the AI, but we will explore that later.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Strictly relying on the LLM&amp;#8217;s knowledge might not be enough. Thus, the Quarkus LangChain4j extension provides two mechanisms to extend AI knowledge:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;em&gt;Tools&lt;/em&gt; - a tool lets the LLM execute actions in your application. For instance, you can use a tool to send an email, call a REST endpoint, or execute a database query. The LLM decides when to use the tool, the method parameters, and what to do with the result.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;em&gt;Document stores&lt;/em&gt; - LLMs are not good at remembering things. In addition, their context has a size limit. Thus, the extension provides a way to store and retrieve information from document stores. Before calling the LLM, the extension can ask for relevant documents in a document store and attach them to the context. The LLM can then use this data to make a decision. For instance, you can load spreadsheet data, reports, or data from a database.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;The following diagram illustrates the interactions between the LLM, the tools, and the document stores:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;imageblock right text-center&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;img src=&quot;/assets/images/posts/llms/llms-big-picture.png&quot; alt=&quot;Quarkus LLM integration - the big picture&quot;&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;show-me-some-code&quot;&gt;&lt;a class=&quot;anchor&quot; href=&quot;#show-me-some-code&quot;&gt;&lt;/a&gt;Show me some code!&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Alright, enough &quot;bla bla&quot;, let&amp;#8217;s see some code! We are going to use Open AI GPT-3.5 (be careful that it&amp;#8217;s not the state-of-the-art model, but it&amp;#8217;s good enough for this demo), give it some product reviews, and ask the LLM to classify them between positive and negative reviews. The full code is available in the &lt;a href=&quot;https://github.com/quarkiverse/quarkus-langchain4j/tree/main/samples/review-triage&quot;&gt;quarkus-langchain4j repository&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;First, we need the &lt;code&gt;quarkus-langchain4j-openai&lt;/code&gt; extension:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;highlightjs highlight&quot;&gt;&lt;code class=&quot;language-xml hljs&quot; data-lang=&quot;xml&quot;&gt;&amp;lt;dependency&amp;gt;
+    &amp;lt;groupId&amp;gt;io.quarkiverse.langchain4j&amp;lt;/groupId&amp;gt;
+    &amp;lt;artifactId&amp;gt;quarkus-langchain4j-openai&amp;lt;/artifactId&amp;gt;
+    &amp;lt;version&amp;gt;0.1.0&amp;lt;/version&amp;gt; &amp;lt;!-- Update to use the latest version --&amp;gt;
+&amp;lt;/dependency&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Once we have the extension, it&amp;#8217;s time to tell the LLM what we want to do. The Quarkus LangChain4J extension provides a declarative way to describe LLM interactions. The idea is the same as the Quarkus REST client. We model the interaction using an interface annotated with &lt;code&gt;@RegisterAiService&lt;/code&gt;:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;highlightjs highlight&quot;&gt;&lt;code class=&quot;language-java hljs&quot; data-lang=&quot;java&quot;&gt;@RegisterAiService
+public interface TriageService {
+    // methods.
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;The rest of the application would be able to use the LLM by injecting the &lt;code&gt;TriageService&lt;/code&gt; interface and calling the methods.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Speaking about methods, that&amp;#8217;s where the magic happens. You will describe what you want the LLM to do using natural language. First, you start with &lt;code&gt;@SystemMessage&lt;/code&gt; to define the role and scope. Then, you can use &lt;code&gt;@UserMessage&lt;/code&gt; to describe the task.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;highlightjs highlight&quot;&gt;&lt;code class=&quot;language-java hljs&quot; data-lang=&quot;java&quot;&gt;@RegisterAiService
+public interface TriageService {
+    @SystemMessage(&quot;&quot;&quot;
+        You are working for a bank, processing reviews about
+        financial products. Triage reviews into positive and
+        negative ones, responding with a JSON document.
+        &quot;&quot;&quot;
+    )
+    @UserMessage(&quot;&quot;&quot;
+        Your task is to process the review delimited by ---.
+        Apply sentiment analysis to the review to determine
+        if it is positive or negative, considering various languages.
+
+        For example:
+        - `I love your bank, you are the best!` is a 'POSITIVE' review
+        - `J'adore votre banque` is a 'POSITIVE' review
+        - `I hate your bank, you are the worst!` is a 'NEGATIVE' review
+
+        Respond with a JSON document containing:
+        - the 'evaluation' key set to 'POSITIVE' if the review is
+        positive, 'NEGATIVE' otherwise
+        - the 'message' key set to a message thanking or apologizing
+        to the customer. These messages must be polite and match the
+        review's language.
+
+        ---
+        {review}
+        ---
+    &quot;&quot;&quot;)
+    TriagedReview triage(String review);
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Voilà! That&amp;#8217;s all you need to do to describe the interaction with the LLM. The instructions follow a set of principles to shape the LLM response. Learn more about these techniques in &lt;a href=&quot;https://docs.quarkiverse.io/quarkus-langchain4j/dev/prompt-engineering.html&quot;&gt;the dedicated prompt engineering page&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Now, to call the LLM from the application code, just inject the &lt;code&gt;TriageService&lt;/code&gt; and call the &lt;code&gt;triage&lt;/code&gt; method:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;highlightjs highlight&quot;&gt;&lt;code class=&quot;language-java hljs&quot; data-lang=&quot;java&quot;&gt;@Path(&quot;/review&quot;)
+public class ReviewResource {
+
+    @Inject
+    TriageService triage;
+
+    record Review(String review) {
+      // User text
+    }
+
+    @POST
+    public TriagedReview triage(Review review) {
+        return triage.triage(review.review());
+    }
+
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;That&amp;#8217;s it! The LLM is now integrated into the application. The &lt;code&gt;TriageService&lt;/code&gt; interface is used as an ambassador to call the LLM. This declarative approach has many advantages:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Testability - you can easily mock the LLM by providing a fake implementation of the interface.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Observability - you can use the Quarkus metrics annotation to monitor the LLM methods.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Resilience - you can use the Quarkus fault-tolerance annotations to handle failures, timeouts, and other transient issues.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;tools-and-document-loader&quot;&gt;&lt;a class=&quot;anchor&quot; href=&quot;#tools-and-document-loader&quot;&gt;&lt;/a&gt;Tools and Document loader&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;The previous example is a bit simplistic. In the real world, you will need to extend the LLM knowledge with tools and document stores. The &lt;code&gt;@RegisterAiService&lt;/code&gt; annotation lets you define the tools and document stores to use.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect2&quot;&gt;
+&lt;h3 id=&quot;tools&quot;&gt;&lt;a class=&quot;anchor&quot; href=&quot;#tools&quot;&gt;&lt;/a&gt;Tools&lt;/h3&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Tools are methods that the LLM can invoke.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;To declare a tool, just use the &lt;code&gt;@Tool&lt;/code&gt; annotation on a &lt;em&gt;bean&lt;/em&gt; method:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;highlightjs highlight&quot;&gt;&lt;code class=&quot;language-java hljs&quot; data-lang=&quot;java&quot;&gt;@ApplicationScoped
+public class CustomerRepository implements PanacheRepository&amp;lt;Customer&amp;gt; {
+
+    @Tool(&quot;get the customer name for the given customerId&quot;)
+    public String getCustomerName(long id) {
+        return find(&quot;id&quot;, id).firstResult().name;
+    }
+
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;In this example, we are using the Panache repository pattern to access the database. We have a specific method annotated with &lt;code&gt;@Tool&lt;/code&gt; to retrieve the customer name. When the LLM needs to get the customer name, it instructs Quarkus to call this method and receives the result.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Obviously, it&amp;#8217;s not a good idea to expose every operation to the LLM. So, in addition to &lt;code&gt;@Tool&lt;/code&gt;, you need to list the set of tools you allow the LLM to invoke in the &lt;code&gt;@RegisterAiService&lt;/code&gt; annotation:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;highlightjs highlight&quot;&gt;&lt;code class=&quot;language-java hljs&quot; data-lang=&quot;java&quot;&gt;@RegisterAiService(
+    tools = { TransactionRepository.class, CustomerRepository.class },
+    chatMemoryProviderSupplier = RegisterAiService.BeanChatMemoryProviderSupplier.class
+)
+public interface FraudDetectionAi {
+   // ...
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;The &lt;code&gt;chatMemoryProviderSupplier&lt;/code&gt; configuration may raise questions. When using tools, a sequence of messages unfolds behind the scenes. It becomes necessary to configure the AI service&amp;#8217;s memory to adeptly track these interactions. The &lt;code&gt;chatMemoryProviderSupplier&lt;/code&gt; allows configuring how the memory is handled. The value &lt;code&gt;BeanChatMemoryProviderSupplier.class&lt;/code&gt; instructs Quarkus to look for a &lt;code&gt;ChatMemoryProvider&lt;/code&gt; bean, like the following:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;highlightjs highlight&quot;&gt;&lt;code class=&quot;language-java hljs&quot; data-lang=&quot;java&quot;&gt;@RequestScoped
+public class ChatMemoryBean implements ChatMemoryProvider {
+
+    Map&amp;lt;Object, ChatMemory&amp;gt; memories = new ConcurrentHashMap&amp;lt;&amp;gt;();
+
+    @Override
+    public ChatMemory get(Object memoryId) {
+        return memories.computeIfAbsent(memoryId,
+            id -&amp;gt; MessageWindowChatMemory.builder()
+                    .maxMessages(20)
+                    .id(memoryId)
+                    .build()
+            );
+    }
+
+    @PreDestroy
+    public void close() {
+        memories.clear();
+    }
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;At the moment, only the OpenAI models support tools.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect2&quot;&gt;
+&lt;h3 id=&quot;document-stores&quot;&gt;&lt;a class=&quot;anchor&quot; href=&quot;#document-stores&quot;&gt;&lt;/a&gt;Document stores&lt;/h3&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Document stores are a way to extend the LLM knowledge with your own data. This approach - called Retrieval Augmented Generation (&lt;em&gt;RAG&lt;/em&gt;) - requires two processes:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;dlist&quot;&gt;
+&lt;dl&gt;
+&lt;dt class=&quot;hdlist1&quot;&gt;The ingestion process&lt;/dt&gt;
+&lt;dd&gt;
+&lt;p&gt;you ingest documents into a document store. The documents are not stored as-is, but an embedding is computed. This embedding is a vector representation of the document.&lt;/p&gt;
+&lt;/dd&gt;
+&lt;dt class=&quot;hdlist1&quot;&gt;The RAG process&lt;/dt&gt;
+&lt;dd&gt;
+&lt;p&gt;in the Quarkus application, you need to declare the document store and the embedding to use. Thus, before calling the LLM, it retrieves the relevant documents from the store (that&amp;#8217;s where the vector representation is useful) and attaches them to the LLM context (which essentially means adding the retrieved information from the document to the user message).&lt;/p&gt;
+&lt;/dd&gt;
+&lt;/dl&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;The Quarkus LangChain4j extension provides facilities for both processes.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;The following code shows how to ingest a document into a Redis document store:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;highlightjs highlight&quot;&gt;&lt;code class=&quot;language-java hljs&quot; data-lang=&quot;java&quot;&gt;@ApplicationScoped
+public class IngestorExample {
+
+    /**
+     * The embedding store (the database).
+     * The bean is provided by the quarkus-langchain4j-redis extension.
+     */
+    @Inject
+    RedisEmbeddingStore store;
+
+    /**
+     * The embedding model (how the vector of a document is computed).
+     * The bean is provided by the LLM (like openai) extension.
+     */
+    @Inject
+    EmbeddingModel embeddingModel;
+
+    public void ingest(List&amp;lt;Document&amp;gt; documents) {
+        var ingestor = EmbeddingStoreIngestor.builder()
+                .embeddingStore(store)
+                .embeddingModel(embeddingModel)
+                .documentSplitter(recursive(500, 0))
+                .build();
+        ingestor.ingest(documents);
+    }
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Then, generally, in another application, you can use the populated document store to extend the LLM knowledge. First, create a bean implementing the &lt;code&gt;Retriever&amp;lt;TextSegment&amp;gt;&lt;/code&gt; interface:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;highlightjs highlight&quot;&gt;&lt;code class=&quot;language-java hljs&quot; data-lang=&quot;java&quot;&gt;@ApplicationScoped
+public class RetrieverExample implements Retriever&amp;lt;TextSegment&amp;gt; {
+
+    private final EmbeddingStoreRetriever retriever;
+
+    RetrieverExample(RedisEmbeddingStore store, EmbeddingModel model) {
+        retriever = EmbeddingStoreRetriever.from(store, model, 20);
+    }
+
+    @Override
+    public List&amp;lt;TextSegment&amp;gt; findRelevant(String s) {
+        return retriever.findRelevant(s);
+    }
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Then, add the document store and the retriever to the &lt;code&gt;@RegisterAiService&lt;/code&gt; annotation:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;highlightjs highlight&quot;&gt;&lt;code class=&quot;language-java hljs&quot; data-lang=&quot;java&quot;&gt;@RegisterAiService(
+    retrieverSupplier = RegisterAiService.BeanRetrieverSupplier.class
+)
+public interface MyAiService {
+// ...
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;admonitionblock tip&quot;&gt;
+&lt;table&gt;
+&lt;tr&gt;
+&lt;td class=&quot;icon&quot;&gt;
+&lt;i class=&quot;fa icon-tip&quot; title=&quot;Tip&quot;&gt;&lt;/i&gt;
+&lt;/td&gt;
+&lt;td class=&quot;content&quot;&gt;
+&lt;code&gt;RegisterAiService.BeanRetrieverSupplier.class&lt;/code&gt; is a special value looking for the &lt;code&gt;Retriever&lt;/code&gt; bean in the Quarkus application.
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;final-notes&quot;&gt;&lt;a class=&quot;anchor&quot; href=&quot;#final-notes&quot;&gt;&lt;/a&gt;Final notes&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;This post presented the Quarkus LangChain4j extension. This is the first version of the extension, and we continue exploring and experimenting with approaches to integrate LLMs into Quarkus applications. We are looking for feedback and ideas to improve these integrations. We are working on removing some rough angles, and exploring other ways to integrate LLMs and to bring developer joy when integrating with LLMs.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;This extension would not have been possible without the fantastic work from Dmytro Liubarskyi on the LangChain4j library. Our collaboration has allowed us to provide a Quarkus-friendly approach to integrate the library (including native compilation support) and shape a new way to integrate LLMs in Quarkus applications. The current design was tailored to enable Quarkus applications to use LLM easily. You can basically hook up any of your &lt;em&gt;beans&lt;/em&gt; as tools or ingest data into a store. In addition, any of your bean can now interact with an LLM.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;We are looking forward to continuing this collaboration and to see what you will build with this extension.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+            </description>
+            <pubDate>Wed, 15 Nov 2023 00:00:00 +0000</pubDate>
+            <guid>
+                https://quarkus.io/blog/quarkus-meets-langchain4j/
+            </guid>
+            
+            
+            
+            <author>Clement Escoffier (https://twitter.com/clementplop)</author>
+            
+        </item>
+        
+        <item>
+            <title>Quarkus Newsletter #38 - November</title>
+            <link>
+                https://quarkus.io/blog/quarkus-newsletter-38/
+            </link>
+            <description>
+                &lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;In the world of software development, innovation often arrives in the form of powerful tools that transform the way we build applications - enter Quarkus, a development platform that&amp;#8217;s reshaping the Java landscape. Learn more about it in &quot;Get started with Quarkus and JPAStreamer &quot; by Julia Gustafsson. The Red Hat build of Quarkus 3.2 features an enriched UI for Java development and the new Pact tool for contract-based testing. Learn more about it in &quot;Red Hat Quarkus Java stack spruces up the dev UI&quot; by Paul Krill. &quot;Demystifying Quarkus Extension Development: Jandex vs. AdditionalBeanBuildItem&quot; by Ivelin Yanev explains the differences between these approaches, offering insights into their roles, applications, and the intricate interplay between them. Gain a clear understanding of how to wield these tools effectively in your Quarkus extensions. Learn how to use Scaffold to quickly modify your code and redeploy it in your Kubernetes cluster with &quot;Skaffold with Quarkus and Kubernetes&quot; by Ronald Koster. Check out the results of the analysis to attribute the size increase to specific changes in Mandrel’s code base with &quot;Exploring why native executables produced with Mandrel 23.0 are bigger than those produced with Mandrel 22.3&quot; by Foivos Zakkak.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;You will also see the latest Quarkus Insights episodes, top tweets and upcoming Quarkus attended events.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Check out &lt;a href=&quot;https://quarkus.io/newsletter/38/&quot;&gt;Newsletter #38: November&lt;/a&gt;!&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Want to get newsletters in your inbox? &lt;a href=&quot;https://quarkus.io/newsletter&quot;&gt;Sign up for the newsletter&lt;/a&gt; using the on page form.&lt;/p&gt;
+&lt;/div&gt;
+            </description>
+            <pubDate>Tue, 14 Nov 2023 00:00:00 +0000</pubDate>
+            <guid>
+                https://quarkus.io/blog/quarkus-newsletter-38/
+            </guid>
+            
+            
+            
+            <author>James Cobb (https://twitter.com/insectengine)</author>
+            
+        </item>
+        
+        <item>
+            <title>Quarkus 3.5.1 released - Maintenance release</title>
+            <link>
+                https://quarkus.io/blog/quarkus-3-5-1-released/
+            </link>
+            <description>
+                &lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Today, we released Quarkus 3.5.1, our first maintenance release for the 3.5 release train.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Among other bugfixes, this release fixes the following CVE:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;https://nvd.nist.gov/vuln/detail/CVE-2023-5720&quot;&gt;CVE-2023-5720&lt;/a&gt; Build environment information disclosure via Quarkus Gradle plugin&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;It should be a safe upgrade for anyone already using 3.5.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;update&quot;&gt;&lt;a class=&quot;anchor&quot; href=&quot;#update&quot;&gt;&lt;/a&gt;Update&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;To update to Quarkus 3.5.1, we recommend updating to the latest version of the Quarkus CLI and run:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;highlightjs highlight&quot;&gt;&lt;code class=&quot;language-bash hljs&quot; data-lang=&quot;bash&quot;&gt;quarkus update&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;To migrate from 3.4, please refer to &lt;a href=&quot;https://github.com/quarkusio/quarkus/wiki/Migration-Guide-3.5&quot;&gt;our migration guide&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;If you are not already using 3.x, please refer to the &lt;a href=&quot;https://quarkus.io/blog/quarkus-3-0-final-released/&quot;&gt;3.0 announcement&lt;/a&gt; for all the details.
+You can also refer to &lt;a href=&quot;https://quarkus.io/blog/quarkus-3-upgrade/&quot;&gt;this blog post&lt;/a&gt; for additional details.
+Once you upgraded to 3.0, also have a look at the &lt;a href=&quot;https://github.com/quarkusio/quarkus/wiki/Migration-Guide-3.1&quot;&gt;3.1&lt;/a&gt;, &lt;a href=&quot;https://github.com/quarkusio/quarkus/wiki/Migration-Guide-3.2&quot;&gt;3.2&lt;/a&gt;, &lt;a href=&quot;https://github.com/quarkusio/quarkus/wiki/Migration-Guide-3.2&quot;&gt;3.3&lt;/a&gt;, and &lt;a href=&quot;https://github.com/quarkusio/quarkus/wiki/Migration-Guide-3.4&quot;&gt;3.4&lt;/a&gt; migration guides.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;full-changelog&quot;&gt;&lt;a class=&quot;anchor&quot; href=&quot;#full-changelog&quot;&gt;&lt;/a&gt;Full changelog&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;You can get &lt;a href=&quot;https://github.com/quarkusio/quarkus/releases/tag/3.5.1&quot;&gt;the full changelog of 3.5.1 on GitHub&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;come-join-us&quot;&gt;&lt;a class=&quot;anchor&quot; href=&quot;#come-join-us&quot;&gt;&lt;/a&gt;Come Join Us&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;We value your feedback a lot so please report bugs, ask for improvements&amp;#8230;&amp;#8203; Let&amp;#8217;s build something great together!&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;If you are a Quarkus user or just curious, don&amp;#8217;t be shy and join our welcoming community:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;provide feedback on &lt;a href=&quot;https://github.com/quarkusio/quarkus/issues&quot;&gt;GitHub&lt;/a&gt;;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;craft some code and &lt;a href=&quot;https://github.com/quarkusio/quarkus/pulls&quot;&gt;push a PR&lt;/a&gt;;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;discuss with us on &lt;a href=&quot;https://quarkusio.zulipchat.com/&quot;&gt;Zulip&lt;/a&gt; and on the &lt;a href=&quot;https://groups.google.com/d/forum/quarkus-dev&quot;&gt;mailing list&lt;/a&gt;;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;ask your questions on &lt;a href=&quot;https://stackoverflow.com/questions/tagged/quarkus&quot;&gt;Stack Overflow&lt;/a&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+            </description>
+            <pubDate>Thu, 09 Nov 2023 00:00:00 +0000</pubDate>
+            <guid>
+                https://quarkus.io/blog/quarkus-3-5-1-released/
+            </guid>
+            
+            
+            
+            <author>Guillaume Smet (https://twitter.com/gsmet_)</author>
+            
+        </item>
+        
+        <item>
+            <title>Quarkus 3.2.8.Final released - Maintenance release</title>
+            <link>
+                https://quarkus.io/blog/quarkus-3-2-8-final-released/
+            </link>
+            <description>
+                &lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Today, we released Quarkus 3.2.8.Final, the eighth maintenance release of the 3.2 LTS release train.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;This release fixes the following CVE:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;https://nvd.nist.gov/vuln/detail/CVE-2023-5720&quot;&gt;CVE-2023-5720&lt;/a&gt; build env information disclosure via gradle plugin&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;It should be a safe upgrade for anyone already using a 3.2 release.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;If you are not already using a 3.2 release, please refer to &lt;a href=&quot;https://github.com/quarkusio/quarkus/wiki/Migration-Guide-3.2&quot;&gt;our migration guide&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;full-changelog&quot;&gt;&lt;a class=&quot;anchor&quot; href=&quot;#full-changelog&quot;&gt;&lt;/a&gt;Full changelog&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;You can get &lt;a href=&quot;https://github.com/quarkusio/quarkus/releases/tag/3.2.8.Final&quot;&gt;the full changelog of 3.2.8.Final on GitHub&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;come-join-us&quot;&gt;&lt;a class=&quot;anchor&quot; href=&quot;#come-join-us&quot;&gt;&lt;/a&gt;Come Join Us&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;We value your feedback a lot so please report bugs, ask for improvements&amp;#8230;&amp;#8203; Let&amp;#8217;s build something great together!&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;If you are a Quarkus user or just curious, don&amp;#8217;t be shy and join our welcoming community:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;provide feedback on &lt;a href=&quot;https://github.com/quarkusio/quarkus/issues&quot;&gt;GitHub&lt;/a&gt;;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;craft some code and &lt;a href=&quot;https://github.com/quarkusio/quarkus/pulls&quot;&gt;push a PR&lt;/a&gt;;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;discuss with us on &lt;a href=&quot;https://quarkusio.zulipchat.com/&quot;&gt;Zulip&lt;/a&gt; and on the &lt;a href=&quot;https://groups.google.com/d/forum/quarkus-dev&quot;&gt;mailing list&lt;/a&gt;;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;ask your questions on &lt;a href=&quot;https://stackoverflow.com/questions/tagged/quarkus&quot;&gt;Stack Overflow&lt;/a&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+            </description>
+            <pubDate>Wed, 08 Nov 2023 00:00:00 +0000</pubDate>
+            <guid>
+                https://quarkus.io/blog/quarkus-3-2-8-final-released/
+            </guid>
+            
+            
+            
+            <author>Alexey Loubyansky (https://twitter.com/aloubyansky)</author>
+            
+        </item>
+        
+    </channel>
+</rss>
